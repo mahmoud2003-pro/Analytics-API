@@ -1,5 +1,5 @@
 # 1 - Download & Install Python 3
-FROM python:3.13.14-slim-bullseye
+FROM python:3.13.14
 
 # setup linux os packages
 
