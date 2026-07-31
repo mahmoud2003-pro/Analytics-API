@@ -6,3 +6,9 @@ Start by building an Analytics API service with Python, FastAPI, Time-series Pos
 
 - `docker build -t analytics-api -f Dockerfile .`
 - `docker run analytics-api`
+
+becomes
+
+- `docker compose up --watch`
+- `docker compose down` (to remove volums)
+- `docker compose run app /bin/bash` or `docker compose run app python`
