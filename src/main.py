@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
+from api.events import router as events_router
 
 app = FastAPI()
 
+app.include_router(events_router, prefix="/api/events")
 
 class Item(BaseModel):
     name: str
@@ -15,6 +17,9 @@ class Item(BaseModel):
 def read_root():
     return {"Hello": "World"}
 
+@app.get("/health")
+def read_health():
+    return {"status": "ok"}
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: str | None = None):

@@ -1,6 +1,6 @@
 services:
     app:
-        image: analytics-app:latest
+        image: analytics-api:latest
         build:
             context: .
             dockerfile: Dockerfile
