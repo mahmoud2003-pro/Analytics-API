@@ -1,6 +1,6 @@
 import os
 from fastapi import APIRouter
-from .schemas import Eventschema, EventListSchema, EventCreateSchema, EventUpdateSchema
+from .models import Eventschema, EventListSchema, EventCreateSchema, EventUpdateSchema
 from api.events.db.config import DATABASE_URL
 
 router = APIRouter()

@@ -14,6 +14,7 @@ class EventCreateSchema(BaseModel):
 class EventUpdateSchema(BaseModel):
     description: str
     page: Optional[str] = Field(default='')
+    
 class Eventschema(BaseModel):
     id: int
     page: Optional[str] = Field(default='')
