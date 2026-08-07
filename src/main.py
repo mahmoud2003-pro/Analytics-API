@@ -2,8 +2,18 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
 from api.events import router as events_router
+from api.events.db.session import init_db 
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Code to run before the application starts
+    init_db()
+    yield
+    # Code to run after the application shuts down
+    print("Shutting down...")
+
+app = FastAPI(lifespan=lifespan)
 
 app.include_router(events_router, prefix="/api/events")
 
